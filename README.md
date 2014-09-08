@@ -1,7 +1,7 @@
 Simple Gallery
 ==============
 
-A simple image gallery based on (jQuery)[http://jquery.com].
+A simple image gallery based on [jQuery](http://jquery.com).
 
 The idea behind this javascript gallery is to be extremely simple. Just a 
 simple fade transition between the images with a navigation possibility.
@@ -38,7 +38,7 @@ Usage
 
 The basic HTML sintax is as follows:
 
-    <div class="simple-gallery" data-loop="true" data-interval="5">
+    <div class="simple-gallery">
         <figure id="image-1">
             <img src="http://placehold.it/1000x400/003366">
         </figure>
@@ -82,7 +82,7 @@ on the gallery element currently displayed.
 
 You can define the options by three distinct ways:
 
-1. using `data-` HTML attributes;
+1. using `data-` HTML attributes: `data-interval="8"`;
 2. when using the jQuery call to start the gallery, as a hash of parameters to 
 `gallery` function: `jQuery('.my-gallery').({ loop : false });`
 3. also when using the jQuer call to start the gallery, overriding the default 
@@ -111,4 +111,4 @@ loop. The default value is `5`.
 Authors
 -------
 
-(Gustavo Straube)[https://github.com/straube/]
+[Gustavo Straube](https://github.com/straube/)
