@@ -1,10 +1,10 @@
 Simple Gallery
 ==============
 
-A simple image gallery based on [jQuery](http://jquery.com).
+A simple image gallery plugin based on [jQuery](http://jquery.com).
 
 The idea behind this javascript gallery is to be extremely simple. Just a 
-simple fade transition between the images with a navigation possibility.
+simple fade transition between the images and navigation enabled.
 
 There is a lot of gallery plugins for jQuery, but I made this one for two 
 reasons:
@@ -26,10 +26,10 @@ somehow else):
 
     <script src="/path/to/jquery.simple-gallery.js"></script>
 
-Do not include the script directly from GitHub (http://raw.github.com/...). The 
+Do NOT include the script directly from GitHub (http://raw.github.com/...). The 
 file is being served as text/plain and as such being blocked in Internet 
 Explorer on Windows 7 for instance (because of the wrong MIME type). Bottom 
-line: GitHub is not a CDN.
+line: GitHub is NOT a CDN.
 
 Usage
 -----
@@ -40,16 +40,16 @@ The basic HTML sintax is as follows:
 
     <div class="simple-gallery">
         <figure id="image-1">
-            <img src="http://placehold.it/1000x400/003366">
+            <img src="//placehold.it/1000x400/003366">
         </figure>
         <figure id="image-2">
-            <img src="http://placehold.it/1000x400/006633">
+            <img src="//placehold.it/1000x400/006633">
         </figure>
         <figure id="image-3">
-            <img src="http://placehold.it/1000x400/336600">
+            <img src="//placehold.it/1000x400/336600">
         </figure>
         <figure id="image-4">
-            <img src="http://placehold.it/1000x400/663300">
+            <img src="//placehold.it/1000x400/663300">
         </figure>
         <nav>
             <a href="#image-1">Image 1</a>
@@ -61,52 +61,53 @@ The basic HTML sintax is as follows:
 
 The HTML for **Simple Gallery** is very flexible, so the only requirement is 
 that the links used for navigation contains the anchor for the gallery 
-elements.
+elements (identified by their IDs).
 
-If you use another HTML element to holds the images instead of `<figure>`, just 
-let the plugin know it within the options (see below to more information).
+If you use another HTML element to hold the images instead of `<figure>`, just 
+let the plugin know that through the options (see below for more information).
 
 ### Javascript
 
-If you have the `simple-gallery` CSS class on your gallery container element, 
-you don't need any Javascript code to make your gallery works.
+If you have the `simple-gallery` class on your gallery container element, you 
+don't have to write any Javascript code to make your gallery work. But you 
+still can configure the plugin within `data-*` attributes or changing the 
+plugin's defaults. See below.
 
 ### CSS
 
-This plugins doesn't require any custom CSS to properly work.
+This plugin doesn't require any custom CSS to work properly.
 
-Only one CSS class is added during the execution of the plugin: `current` class 
-on the gallery element currently displayed.
+Only one class is added to HTML during the execution of the plugin: `current` 
+class in the element currently displayed.
 
 ### Options
 
 You can define the options by three distinct ways:
 
-1. using `data-` HTML attributes: `data-interval="8"`;
+1. using `data-*` HTML attributes: `data-interval="8"`;
 2. when using the jQuery call to start the gallery, as a hash of parameters to 
-`gallery` function: `jQuery('.my-gallery').({ loop : false });`
-3. also when using the jQuer call to start the gallery, overriding the default 
-settings, before call the jQuery `gallery` function: 
+`gallery` function: `jQuery('.my-gallery').gallery({ loop : false });`
+3. overriding the default settings, before call the jQuery `gallery` function: 
 `$.fn.gallery.defaults.elements = 'span';`.
 
-#### elements
+#### tag
 
 If you want to use a different HTML tag to your gallery elements instead of 
-`<figure>` define it with the `elements` option:
+`<figure>` define it with the `tag` option:
 
     {
-        elements : 'div'
+        tag : 'div'
     }
 
 #### loop
 
-By default the will automatically loop over the elements on document ready. You 
-can change this behavior setting the `loop` option to `false`.
+By default the plugin will automatically loop over the elements on document 
+ready. You can change this behavior setting the `loop` option to `false`.
 
 #### interval
 
-This option expect a integer number with the amount of seconds for each image 
-loop. The default value is `5`.
+This option expect a integer number with the amount of seconds between each 
+image in the loop. The default value is `5`.
 
 Authors
 -------

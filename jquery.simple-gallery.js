@@ -1,5 +1,5 @@
 /*!
- * jQuery Simple Gallery Plugin v2.0
+ * jQuery Simple Gallery Plugin v2.1
  * https://github.com/straube/simple-gallery
  *
  * Copyright 2013, 2014 Gustavo Straube
@@ -11,7 +11,7 @@
         return this.each(function () {
             var settings = $.extend({}, $.fn.gallery.defaults, options),
                 $gallery = $(this),
-                $images  = $gallery.find(settings.elements),
+                $images  = $gallery.find(settings.tag),
                 loop,
 
                 // Local functions
@@ -37,12 +37,7 @@
             if (settings.loop) {
                 var interval = settings.interval * 1000;
                 loop = window.setInterval(function () {
-                    var prev = false,
-                        $next = $images.filter(function () {
-                            var aux = prev;
-                            prev = $(this).is('.current');
-                            return aux;
-                        });
+                    var $next = $images.filter('.current').next(settings.tag);
                     if ($next.length === 0) {
                         $next = $images.first();
                     }
@@ -54,7 +49,7 @@
     };
 
     $.fn.gallery.defaults = {
-        elements : 'figure',
+        tag      : 'figure',
         loop     : true,
         interval : 5
     };
