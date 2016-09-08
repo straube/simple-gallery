@@ -3,11 +3,52 @@
 <head>
     <meta charset="utf-8">
     <title>Simple Gallery Demo</title>
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="jquery.simple-gallery.js"></script>
+    <!-- Style is not required for using the plugin -->
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 1em;
+            font-family: helvetica, arial, sans-serif;
+        }
+        div {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        figure {
+            margin: 0 0 2em;
+        }
+        figure img {
+            max-width: 100%;
+            height: auto;
+        }
+        nav {
+            font-size: 0;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 .5em;
+            color: #333;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        nav a:before {
+            content: '-';
+            display: inline;
+            margin-right: 1em;
+        }
+        nav a:first-child {
+            margin-left: 0;
+        }
+        nav a:first-child:before {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <div class="simple-gallery" data-loop="true" data-interval="5">
+    <div data-gallery="simple" data-loop="true" data-interval="5">
         <figure id="image-1">
             <img src="http://placehold.it/1000x400/003366">
         </figure>

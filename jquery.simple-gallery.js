@@ -6,20 +6,22 @@
  */
 ;(function ($) {
 
+    'use strict';
+
     $.fn.gallery = function (options) {
 
         return this.each(function () {
-            var settings = $.extend({}, $.fn.gallery.defaults, options),
-                $gallery = $(this),
-                $images  = $gallery.find(settings.tag),
-                loop,
+            var settings = $.extend({}, $.fn.gallery.defaults, options);
+            var $gallery = $(this);
+            var $images  = $gallery.find(settings.tag);
+            var loop;
 
-                // Local functions
-                show = function ($image) {
-                    $images.removeClass('current').fadeOut().promise().done(function () {
-                        $image.addClass('current').fadeIn();
-                    });
-                };
+            // Local functions
+            var show = function ($image) {
+                $images.removeClass('current').fadeOut().promise().done(function () {
+                    $image.addClass('current').fadeIn();
+                });
+            };
 
             $images.hide().first().show().addClass('current');
 
@@ -54,8 +56,8 @@
         interval : 5
     };
 
-    $(document).ready(function () {
-        $simple = $('.simple-gallery');
+    $(function () {
+        var $simple = $('[data-gallery="simple"]');
         if ($simple.length) {
             $simple.gallery($simple.data());
         }
